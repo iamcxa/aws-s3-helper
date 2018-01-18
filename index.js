@@ -15,8 +15,9 @@ class S3Helper {
             region: config.S3_REGION
         });
 
-        this.s3 = new AWS.S3();
-
+        this.s3 = new AWS.S3({
+            signatureVersion: 'v4'
+        });
 
 
     }

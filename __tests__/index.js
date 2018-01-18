@@ -1,5 +1,6 @@
 const S3Helper = require('./../index')
 const config = require('config');
+const request = require('superagent');
 
 let {
   S3_KEY,
@@ -27,8 +28,11 @@ let s3Helper = new S3Helper(constructorParams);
 test('getPresignedUrlForPutObject url', async () => {
   
   let result = await s3Helper.getPresignedUrlForPutObject("test.png");  
-  console.log("result", JSON.stringify(result, null, 2));
-
+  console.log("result", result);
+  let upload = await request
+  .put(result)
+  .attach('file', `${__dirname}/test.png`)
+  
 })
   
 test('getPresignedUrlForGetObject url', async () => {
