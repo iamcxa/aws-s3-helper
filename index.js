@@ -24,7 +24,7 @@ class S3Helper {
             Bucket: this.BUCKET,
             Key: objectKey,
             ACL: 'public-read',
-            Expires: '+30 days'
+            Expires: 60 * 60 * 24 * 7
         };
 
         var result = await new Promise((accept, reject) => {
@@ -38,7 +38,7 @@ class S3Helper {
         var params = {
             Bucket: this.BUCKET,
             Key: objectKey,
-            Expires: '+30 days'
+            Expires: 60 * 60 * 24 * 7
         };
 
         var result = await new Promise((accept, reject) => {
