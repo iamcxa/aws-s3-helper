@@ -7,7 +7,8 @@ class S3Helper {
         console.log("config", config)
         this.ENV = config.ENV;
         this.BUCKET = config.S3_BUCKET;
-
+        this.PUT_EXPIRES_TIME = config.PUT_EXPIRES_TIME || 60 * 60 * 24 * 7;
+        this.GET_EXPIRES_TIME = config.GET_EXPIRES_TIME || 60 * 60 * 24 * 7;
         AWS.config.update({
             accessKeyId: config.S3_KEY,
             secretAccessKey: config.S3_SECRET,
@@ -24,7 +25,7 @@ class S3Helper {
             Bucket: this.BUCKET,
             Key: objectKey,
             ACL: 'public-read',
-            Expires: 60 * 60 * 24 * 7
+            Expires: this.PUT_EXPIRES_TIME,
         };
 
         var result = await new Promise((accept, reject) => {
@@ -38,9 +39,8 @@ class S3Helper {
         var params = {
             Bucket: this.BUCKET,
             Key: objectKey,
-            Expires: 60 * 60 * 24 * 7
+            Expires: this.GET_EXPIRES_TIME,
         };
-
         var result = await new Promise((accept, reject) => {
             this.s3.getSignedUrl('getObject', params
             , (err, url) => err ? reject(err) : accept(url));

@@ -6,6 +6,8 @@ let {
   S3_SECRET,
   S3_BUCKET,
   S3_REGION,
+  PUT_EXPIRES_TIME,
+  GET_EXPIRES_TIME,
 } = config.aws
 
 let {ENV} = config;
@@ -15,7 +17,9 @@ let constructorParams = {
   S3_SECRET,
   S3_BUCKET,
   S3_REGION,
-  ENV
+  ENV,
+  PUT_EXPIRES_TIME,
+  GET_EXPIRES_TIME,
 }
 
 let s3Helper = new S3Helper(constructorParams);
