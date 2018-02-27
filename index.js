@@ -21,11 +21,11 @@ class S3Helper {
 
 
     }
-    async getPresignedUrlForPutObject(objectKey) {
+    async getPresignedUrlForPutObject(objectKey, acl) {
         var params = {
             Bucket: this.BUCKET,
             Key: objectKey,
-            ACL: 'public-read',
+            ACL: acl || 'public-read',
             Expires: this.PUT_EXPIRES_TIME,
         };
 
