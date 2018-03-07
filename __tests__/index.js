@@ -42,3 +42,13 @@ test('getPresignedUrlForGetObject url', async () => {
 
 })
 
+test.only('zip s3 folder and upload', async () => {
+  var s3FolderName = "case/A112345678";
+  var s3ZipFileName = "zip/case/A112345678.zip";
+  let result = await s3Helper.zipToS3File(s3FolderName, s3ZipFileName);
+  console.log("result", JSON.stringify(result, null, 2));
+  console.log("zipFileLocation", result.zipFileLocation);
+  
+  
+
+}, 30000)
