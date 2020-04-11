@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "airbnb-base",
+    "standard",
+    "plugin:prettier/recommended",
+    ".eslintrc-sails"
+  ],
+  "plugins": [
+    "import",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-restricted-syntax": [
+      "error",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "import/no-extraneous-dependencies": "off",
+    "no-await-in-loop": "warn",
+    "func-names": "off",
+    "no-underscore-dangle": "off",
+    "implicit-arrow-linebreak": "off",
+    "arrow-parens": [
+      2,
+      "always",
+      {
+        "requireForBlockBody": true
+      }
+    ]
+  }
+}
