@@ -4,7 +4,7 @@ const S3Zipper = require('aws-s3-zipper');
 
 class S3Helper {
   constructor(config) {
-    console.log('config', config);
+    console.log('[-]S3Helper config=>', config);
     this.ENV = config.ENV;
     this.BUCKET = config.S3_BUCKET;
     this.PUT_EXPIRES_TIME = config.PUT_EXPIRES_TIME || 60 * 60 * 24 * 7;
